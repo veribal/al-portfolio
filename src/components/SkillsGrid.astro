@@ -1,0 +1,338 @@
+---
+// src/components/SkillsGrid.astro
+
+const skills = [
+  // --- Web Development ---
+  { name: "HTML5", slug: "html5", color: "E34F26" },
+  { 
+    name: "CSS3", 
+    customSvg: `<svg viewBox="0 0 24 24" fill="#1572B6"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.149l-.298-3.34H3.892l.24 2.684h13.91l-.145 1.625H4.275l.24 2.684h13.29l-.657 7.355-5.17 1.436-5.17-1.436-.33-3.69H3.79l.52 5.827 7.667 2.126 7.667-2.126 1.05-11.758z"/></svg>`,
+    color: "1572B6" 
+  },
+  { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
+  { name: "React.js", slug: "react", color: "61DAFB" },
+  { name: "Node.js", slug: "nodedotjs", color: "339933" },
+  { name: "Express.js", slug: "express", color: "FFFFFF" },
+  { name: "MongoDB", slug: "mongodb", color: "47A248" },
+  { name: "Git", slug: "git", color: "F05032" },
+  { name: "GitHub", slug: "github", color: "FFFFFF" },
+  { name: "Netlify", slug: "netlify", color: "00C7B7" },
+  { name: "Astro", slug: "astro", color: "BC52EE" },
+  { name: "Tailwind", slug: "tailwindcss", color: "06B6D4" },
+  { name: "WordPress", slug: "wordpress", color: "21759A" },
+
+  // --- Data Analysis ---
+  { name: "SQL", slug: "mysql", color: "4479A1" },
+  { 
+    name: "Excel", 
+    customSvg: `<svg viewBox="0 0 24 24" fill="#217346"><path d="M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7-.29.3-.7.3H7q-.41 0-.7-.3-.3-.29-.3-.7V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q1 6 1.41 6H6V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.45-3.94 2.3-3.86h-2.1L6 10.74L4.68 8.14H2.54l2.3 3.86-2.45 3.94h2.14zM22 3.5h-5v3h5zm0 5h-5v3h5zm0 5h-5v3h5zm0 5h-5v3h5zm-7-15h-4v3h4zm0 5h-4v3h4zm0 5h-4v3h4zm0 5h-4v3h4z"/></svg>`,
+    color: "217346" 
+  },
+  { name: "Google Sheets", slug: "googlesheets", color: "34A853" },
+  { 
+    name: "Power BI", 
+    customSvg: `<svg viewBox="0 0 24 24" fill="#F2C811"><path d="M10.462 6.014h2.893v16.923h-2.893zM4.776 11.21h2.893v11.727H4.776zM16.147 1.063h2.894v21.874h-2.894z"/></svg>`,
+    color: "F2C811" 
+  },
+  { name: "Looker Studio", slug: "looker", color: "4285F4" },
+  { name: "GA4", slug: "googleanalytics", color: "E37400" },
+  { name: "Python", slug: "python", color: "3776AB" },
+
+  // --- Digital Marketing ---
+  { name: "Tag Manager", slug: "googletagmanager", color: "246FDB" },
+  { name: "Google Ads", slug: "googleads", color: "4285F4" },
+  { name: "Search Console", slug: "googlesearchconsole", color: "4585F4" },
+  { name: "SEMRush", slug: "semrush", color: "EC5627" },
+  { name: "Shopify", slug: "shopify", color: "7AB55C" },
+  { name: "Hubspot", slug: "hubspot", color: "FF7A59" },
+  
+  // Custom Fallbacks
+  { 
+    name: "Merchant Center", 
+    customSvg: `<svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>`,
+    color: "4285F4" 
+  },
+  { 
+    name: "Conversion Tracking", 
+    customSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+    color: "FFFFFF" 
+  }
+];
+
+// Split the array into 4 chunks for the 4 rows
+const chunkSize = Math.ceil(skills.length / 4);
+const row1 = skills.slice(0, chunkSize);
+const row2 = skills.slice(chunkSize, chunkSize * 2);
+const row3 = skills.slice(chunkSize * 2, chunkSize * 3);
+const row4 = skills.slice(chunkSize * 3);
+---
+
+<div class="w-full">
+  
+  {/* ==============================================================
+      DESKTOP VIEW: Interactive "Apple Watch" Grid
+      ============================================================== */}
+  <div id="desktop-skills-container" class="hidden md:flex relative w-full max-w-4xl mx-auto py-20 overflow-visible user-select-none flex-wrap justify-center gap-6 lg:gap-8 perspective-1000">
+    {skills.map((skill) => (
+      <div
+        class="skill-item relative flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full transition-all duration-200 ease-out will-change-transform group"
+        data-color={`#${skill.color}`}
+      >
+        {skill.customSvg ? (
+           <div class="w-10 h-10 lg:w-12 lg:h-12" set:html={skill.customSvg} />
+        ) : (
+           <img 
+             src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} 
+             alt={skill.name} 
+             class="w-10 h-10 lg:w-12 lg:h-12 object-contain"
+           />
+        )}
+        
+        <span class="absolute -top-12 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-zinc-900 border border-white/20 rounded-md opacity-0 transition-opacity duration-200 pointer-events-none whitespace-nowrap group-hover:opacity-100 z-[9999] shadow-2xl">
+          {skill.name}
+        </span>
+      </div>
+    ))}
+  </div>
+
+
+  {/* ==============================================================
+      MOBILE VIEW: Infinite Scrolling Marquee (4 Rows)
+      ============================================================== */}
+  <div class="flex md:hidden w-full py-10 overflow-hidden flex-col gap-8 relative">
+    
+    <div class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none"></div>
+
+    <div class="flex w-max animate-marquee-left">
+      <div class="flex gap-8 pr-8 items-center">
+        {row1.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="flex gap-8 pr-8 items-center">
+        {row1.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex w-max animate-marquee-right">
+      <div class="flex gap-8 pr-8 items-center">
+        {row2.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="flex gap-8 pr-8 items-center">
+        {row2.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex w-max animate-marquee-left">
+      <div class="flex gap-8 pr-8 items-center">
+        {row3.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="flex gap-8 pr-8 items-center">
+        {row3.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex w-max animate-marquee-right">
+      <div class="flex gap-8 pr-8 items-center">
+        {row4.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="flex gap-8 pr-8 items-center">
+        {row4.map((skill) => (
+          <div class="flex flex-col items-center gap-2 w-16">
+            <div class="w-8 h-8 flex items-center justify-center opacity-80">
+              {skill.customSvg ? (
+                <div class="w-full h-full" set:html={skill.customSvg} />
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
+              )}
+            </div>
+            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Only target the desktop container so JS doesn't run unnecessarily on mobile
+  const container = document.getElementById('desktop-skills-container');
+  
+  if (container) {
+    const items = container.querySelectorAll('.skill-item');
+
+    const config = {
+      maxScale: 1.8,        
+      baseScale: 1.0,       
+      influenceRadius: 150, 
+      damping: 0.15         
+    };
+
+    let targetScales = new Array(items.length).fill(config.baseScale);
+    let currentScales = new Array(items.length).fill(config.baseScale);
+    let animationFrameId = null;
+
+    function animate() {
+      let needsUpdate = false;
+      
+      items.forEach((item, index) => {
+        const diff = targetScales[index] - currentScales[index];
+        
+        if (Math.abs(diff) > 0.005) {
+          currentScales[index] += diff * config.damping;
+          needsUpdate = true;
+        } else {
+          currentScales[index] = targetScales[index]; 
+        }
+        
+        item.style.transform = `scale(${currentScales[index]})`;
+        item.style.zIndex = Math.round(currentScales[index] * 100);
+
+        if (currentScales[index] > config.baseScale + 0.05) {
+          const color = item.getAttribute('data-color');
+          item.style.filter = `drop-shadow(0 0 12px ${color}80)`; 
+        } else {
+          item.style.filter = 'none';
+        }
+      });
+
+      if (needsUpdate) {
+        animationFrameId = requestAnimationFrame(animate);
+      } else {
+        animationFrameId = null; 
+      }
+    }
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      items.forEach((item, index) => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenterX = itemRect.left + itemRect.width / 2 - rect.left;
+        const itemCenterY = itemRect.top + itemRect.height / 2 - rect.top;
+
+        const distance = Math.sqrt(
+          Math.pow(mouseX - itemCenterX, 2) + Math.pow(mouseY - itemCenterY, 2)
+        );
+
+        if (distance < config.influenceRadius) {
+          const ratio = 1 - distance / config.influenceRadius;
+          const scaleBoost = Math.sin(ratio * Math.PI / 2) * (config.maxScale - config.baseScale);
+          targetScales[index] = config.baseScale + scaleBoost;
+        } else {
+          targetScales[index] = config.baseScale;
+        }
+      });
+
+      if (!animationFrameId) animate();
+    });
+
+    container.addEventListener('mouseleave', () => {
+      targetScales.fill(config.baseScale);
+      if (!animationFrameId) animate();
+    });
+  }
+</script>
+
+<style>
+  .perspective-1000 { perspective: 1000px; }
+  .user-select-none { user-select: none; }
+
+  /* Infinite Marquee Animations */
+  @keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .animate-marquee-left {
+    animation: marqueeLeft 30s linear infinite;
+  }
+  
+  .animate-marquee-right {
+    animation: marqueeRight 30s linear infinite;
+  }
+</style>

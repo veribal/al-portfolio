@@ -41,6 +41,21 @@ const menuItems = [
           Alberry Jed Rivera
         </div>
       </div>
+
+      <div class="mt-10 flex items-center gap-8">
+      <a 
+        href="/Alberry-Jed-Rivera-Resume.pdf" 
+        download
+        class="group/resume relative px-8 py-3 rounded-full border border-white/20 text-xs uppercase tracking-[0.2em] font-bold overflow-hidden transition-all hover:border-[#ff4d4d]"
+      >
+        <span class="relative z-10 group-hover/resume:text-white">Download CV</span>
+        <div class="absolute inset-0 bg-[#ff4d4d] translate-y-[101%] group-hover/resume:translate-y-0 transition-transform duration-300 ease-out"></div>
+      </a>
+      
+      <span class="text-[10px] uppercase tracking-[0.3em] opacity-40 hidden md:block">
+        Scroll to explore
+      </span>
+    </div>
     </section>
 
     {/* SECTION 2: TABLE OF CONTENTS */}
@@ -176,38 +191,278 @@ const menuItems = [
     </section>
     
     <section id="portfolio" class="min-h-[50vh] flex items-center justify-center border-b border-white/5 text-white/30 text-2xl font-light">
-       </section>
+    {/* ======================================================
+        SECTION 6: FEATURED PORTFOLIO
+        ====================================================== */}
+    <section id="portfolio" class="min-h-screen flex flex-col md:flex-row relative border-b border-white/5">
+      
+      <aside class="w-full md:w-1/3 p-8 md:p-10 lg:p-32 flex flex-col relative md:border-r border-white/5 justify-center">
+        <div class="hidden md:block absolute left-32 top-0 w-[1px] h-32 bg-white"></div>
+        <div class="absolute top-32 text-[#ff4d4d] text-5xl font-thin leading-none -left-[17px] hidden md:block">+</div>
+        <div class="text-sm opacity-60 tracking-[0.2em] uppercase">Selected Work</div>
+      </aside>
+
+      <div class="w-full md:w-2/3 p-0 md:p-0 flex flex-col">
+        
+        <div class="group relative w-full flex flex-col lg:flex-row border-b border-white/5 hover:bg-white/[0.02] transition-colors duration-500">
+          <div class="flex-1 p-8 md:p-16 lg:p-24 flex flex-col justify-center">
+            <span class="text-[#ff4d4d] font-mono text-sm mb-6 block tracking-widest uppercase">01 / Lead Generation</span>
+            <h3 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter mb-8 leading-tight">
+              Cebu High-End <br/> Real Estate Scale.
+            </h3>
+            <p class="text-gray-400 font-light leading-relaxed max-w-md mb-12">
+              Strategic Meta and Google Ads campaigns targeting high-net-worth individuals in Banilad and Mandaue. Achieved a 40% reduction in Cost Per Lead (CPL) for luxury residential properties.
+            </p>
+            <a href="#" class="group/btn flex items-center gap-4 text-xs uppercase tracking-[0.3em] font-bold">
+              View Case Study 
+              <span class="w-8 h-[1px] bg-white group-hover/btn:w-12 transition-all"></span>
+            </a>
+          </div>
+          <div class="w-full lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden bg-zinc-900">
+            <img 
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2340&auto=format&fit=crop" 
+              alt="Cebu Real Estate Project" 
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+        </div>
+
+        <div class="group relative w-full flex flex-col lg:flex-row-reverse border-b border-white/5 hover:bg-white/[0.02] transition-colors duration-500">
+          <div class="flex-1 p-8 md:p-16 lg:p-24 flex flex-col justify-center">
+            <span class="text-[#ff4d4d] font-mono text-sm mb-6 block tracking-widest uppercase">02 / Digital Marketing</span>
+            <h3 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter mb-8 leading-tight">
+              E-Commerce <br/> ROAS Optimization.
+            </h3>
+            <p class="text-gray-400 font-light leading-relaxed max-w-md mb-12">
+              Scaling e-commerce brands through precise Google Ads optimization and conversion tracking. Leveraged GA4 and GTM to increase attribution accuracy and drive 3.5x ROAS.
+            </p>
+            <a href="#" class="group/btn flex items-center gap-4 text-xs uppercase tracking-[0.3em] font-bold">
+              View Case Study 
+              <span class="w-8 h-[1px] bg-white group-hover/btn:w-12 transition-all"></span>
+            </a>
+          </div>
+          <div class="w-full lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden bg-zinc-900">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" 
+              alt="Digital Marketing Project" 
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-100"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>   
+    
+    </section>
     
     <section id="services" class="min-h-[50vh] flex items-center justify-center border-b border-white/5 text-white/30 text-2xl font-light">
-       </section>
+    {/* ======================================================
+        SECTION 8: SERVICES & SOLUTIONS
+        ====================================================== */}
+    <section id="services" class="min-h-screen flex flex-col md:flex-row relative border-b border-white/5">
+      
+      <aside class="w-full md:w-1/3 p-8 md:p-10 lg:p-32 flex flex-col relative md:border-r border-white/5 justify-center">
+        <div class="hidden md:block absolute left-32 top-0 w-[1px] h-32 bg-white"></div>
+        <div class="absolute top-32 text-[#ff4d4d] text-5xl font-thin leading-none -left-[17px] hidden md:block">+</div>
+        <div class="text-sm opacity-60 tracking-[0.2em] uppercase">My Expertise</div>
+      </aside>
+
+      <div class="w-full md:w-2/3 p-0 md:p-0 flex flex-col">
+        
+        <div class="group border-b border-white/5 p-12 lg:p-20 transition-colors duration-500 hover:bg-white/[0.02]">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+            <div class="max-w-md">
+              <span class="text-[#ff4d4d] font-mono text-xs mb-6 block tracking-widest uppercase">01 / Growth</span>
+              <h3 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">Performance Marketing & Paid Search</h3>
+              <p class="text-gray-400 font-light leading-relaxed mb-8">
+                Scaling businesses through high-intent Google Ads and Meta campaigns. Specialized in the Cebu real estate market and global e-commerce brands.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">Google Ads</span>
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">Meta Ads</span>
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">ROAS Scaling</span>
+              </div>
+            </div>
+            <div class="hidden lg:block text-right">
+              <div class="text-6xl font-thin opacity-5 group-hover:opacity-20 transition-opacity">PROFIT</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border-b border-white/5 p-12 lg:p-20 transition-colors duration-500 hover:bg-white/[0.02]">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+            <div class="max-w-md">
+              <span class="text-[#ff4d4d] font-mono text-xs mb-6 block tracking-widest uppercase">02 / Analysis</span>
+              <h3 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">Conversion Tracking & Data Analysis</h3>
+              <p class="text-gray-400 font-light leading-relaxed mb-8">
+                Building robust tracking infrastructures using GTM and GA4. I turn raw data into actionable insights using Python and SQL for deeper attribution.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">GTM Server-Side</span>
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">GA4 Audit</span>
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">Python/SQL</span>
+              </div>
+            </div>
+            <div class="hidden lg:block text-right">
+              <div class="text-6xl font-thin opacity-5 group-hover:opacity-20 transition-opacity">INSIGHT</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border-b border-white/5 p-12 lg:p-20 transition-colors duration-500 hover:bg-white/[0.02]">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+            <div class="max-w-md">
+              <span class="text-[#ff4d4d] font-mono text-xs mb-6 block tracking-widest uppercase">03 / Build</span>
+              <h3 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">Full-Stack Web Development</h3>
+              <p class="text-gray-400 font-light leading-relaxed mb-8">
+                Creating high-performance, SEO-optimized web applications and landing pages using Astro and Tailwind CSS. Built for speed and conversion.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">Astro Framework</span>
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">Tailwind CSS</span>
+                <span class="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-wider text-gray-500">API Integration</span>
+              </div>
+            </div>
+            <div class="hidden lg:block text-right">
+              <div class="text-6xl font-thin opacity-5 group-hover:opacity-20 transition-opacity">CODE</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>   
+    
+    </section>
+
+       {/* ======================================================
+        SECTION 7: BRANDS & PARTNERSHIPS
+        ====================================================== */}
+    <section id="brands" class="py-20 md:py-32 border-b border-white/5 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-32">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+           <div class="max-w-xl">
+             <span class="text-[#ff4d4d] font-mono text-sm mb-4 block tracking-widest uppercase">Global Partners</span>
+             <h2 class="text-4xl md:text-5xl font-medium tracking-tighter leading-tight">
+               Driving growth for industry leaders.
+             </h2>
+           </div>
+           <p class="text-gray-400 font-light text-sm max-w-xs leading-relaxed">
+             Specializing in scaling brands through data-driven performance marketing and conversion optimization.
+           </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-1px bg-white/5 border border-white/5">
+          
+          <div class="group bg-[#0a0a0a] p-12 lg:p-16 flex flex-col items-center text-center transition-colors duration-500 hover:bg-white/[0.02]">
+            <div class="h-24 flex items-center justify-center mb-10 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100">
+               <img src="/logos/blackout-audio.png" alt="Blackout Audio" class="max-h-full max-w-[180px] object-contain" />
+            </div>
+            <h4 class="text-white font-medium mb-3 tracking-tight">Blackout Audio</h4>
+            <span class="text-[10px] text-[#ff4d4d] uppercase tracking-[0.2em] font-bold mb-6">E-Commerce & Google Ads</span>
+            <p class="text-xs text-gray-500 font-light leading-relaxed">
+              Optimized Shopify and Google Merchant Center integration to maximize sales volume and ROAS through precision campaign scaling.
+            </p>
+          </div>
+
+          <div class="group bg-[#0a0a0a] p-12 lg:p-16 flex flex-col items-center text-center transition-colors duration-500 hover:bg-white/[0.02]">
+            <div class="h-24 flex items-center justify-center mb-10 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100">
+               <img src="/logos/cocos-crush.png" alt="Coco's Crush Bar & Grill" class="max-h-full max-w-[180px] object-contain" />
+            </div>
+            <h4 class="text-white font-medium mb-3 tracking-tight">Coco's Crush Bar & Grill</h4>
+            <span class="text-[10px] text-[#ff4d4d] uppercase tracking-[0.2em] font-bold mb-6">Foot Traffic Optimization</span>
+            <p class="text-xs text-gray-500 font-light leading-relaxed">
+              Implemented high-intent audience segmenting to drive physical restaurant visits while maintaining a strict lower-cost-per-acquisition.
+            </p>
+          </div>
+
+          <div class="group bg-[#0a0a0a] p-12 lg:p-16 flex flex-col items-center text-center transition-colors duration-500 hover:bg-white/[0.02]">
+            <div class="h-24 flex items-center justify-center mb-10 grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100">
+               <img src="/logos/porcelanosa.png" alt="Porcelanosa" class="max-h-full max-w-[180px] object-contain" />
+            </div>
+            <h4 class="text-white font-medium mb-3 tracking-tight">Porcelanosa</h4>
+            <span class="text-[10px] text-[#ff4d4d] uppercase tracking-[0.2em] font-bold mb-6">Lead Gen & CRO</span>
+            <p class="text-xs text-gray-500 font-light leading-relaxed">
+              Analyzed user behavior to maximize site visits and lead generation for high-end Spanish home fixtures and surfaces.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     {/* SECTION 5: CONTACT */}
-    <section id="contact" class="min-h-[70vh] flex flex-col items-center justify-center relative py-20 md:py-32 overflow-hidden px-8">
+   {/* ======================================================
+        SECTION 9: CONTACT & INQUIRIES
+        ====================================================== */}
+    <section id="contact" class="min-h-screen flex flex-col md:flex-row relative">
       
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#ff4d4d]/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
-
-      <h2 class="text-4xl md:text-5xl lg:text-[8vw] font-medium tracking-tighter mb-10 md:mb-16 text-center relative z-10 leading-none">
-        Let's Connect.
-      </h2>
-
-      <div class="flex flex-col sm:flex-row gap-4 md:gap-6 z-10 w-full sm:w-auto">
+      <aside class="w-full md:w-1/3 p-8 md:p-10 lg:p-32 flex flex-col relative md:border-r border-white/5 justify-center">
+        <div class="hidden md:block absolute left-32 top-0 w-[1px] h-32 bg-white"></div>
+        <div class="absolute top-32 text-[#ff4d4d] text-5xl font-thin leading-none -left-[17px] hidden md:block">+</div>
         
-        <a href="https://www.linkedin.com/in/alberry-jed-rivera-89853994/" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-center gap-4 px-8 md:px-10 py-4 md:py-5 rounded-full border border-white/20 bg-transparent overflow-hidden transition-all duration-500 hover:border-white">
-          <div class="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
-          <svg class="w-5 h-5 text-white group-hover:text-black relative z-10 transition-colors duration-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-          <span class="text-white group-hover:text-black relative z-10 tracking-[0.2em] uppercase text-[10px] md:text-xs font-bold transition-colors duration-500">LinkedIn</span>
-        </a>
+        <div class="mb-12">
+            <span class="text-sm opacity-60 tracking-[0.2em] uppercase block mb-4">Contact</span>
+            <h2 class="text-4xl md:text-5xl font-medium tracking-tighter leading-tight mb-8">
+              Let’s build <br/> something great.
+            </h2>
+            <p class="text-gray-400 font-light leading-relaxed max-w-xs">
+              Available for freelance projects and full-time opportunities in Performance Marketing and Web Development.
+            </p>
+        </div>
 
-        <a href="mailto:alberryjed1@gmail.com" class="group relative flex items-center justify-center gap-4 px-8 md:px-10 py-4 md:py-5 rounded-full border border-white/20 bg-transparent overflow-hidden transition-all duration-500 hover:border-[#ff4d4d]">
-          <div class="absolute inset-0 bg-[#ff4d4d] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
-          <svg class="w-5 h-5 md:w-6 md:h-6 text-white relative z-10 transition-colors duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
-          <span class="text-white relative z-10 tracking-[0.2em] uppercase text-[10px] md:text-xs font-bold transition-colors duration-500">Email Me</span>
-        </a>
+        <div class="space-y-6">
+            <div>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 block mb-1">Email</span>
+                <a href="mailto:alberryjed1@gmail.com" class="text-lg hover:text-[#ff4d4d] transition-colors">alberryjed1@gmail.com</a>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 block mb-1">Location</span>
+                <span class="text-lg">Cebu, Philippines</span>
+            </div>
+        </div>
+      </aside>
+
+      <div class="w-full md:w-2/3 p-8 md:p-16 lg:p-32 flex flex-col justify-center bg-white/[0.01]">
+        
+        <form 
+          name="portfolio-contact" 
+          method="POST" 
+          data-netlify="true" 
+          class="flex flex-col gap-10 max-w-2xl"
+        >
+          <input type="hidden" name="form-name" value="portfolio-contact" />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="relative group">
+              <input type="text" name="name" required placeholder="Name" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff4d4d] transition-colors placeholder:text-zinc-700" />
+            </div>
+            <div class="relative group">
+              <input type="email" name="email" required placeholder="Email Address" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff4d4d] transition-colors placeholder:text-zinc-700" />
+            </div>
+          </div>
+
+          <div class="relative group">
+            <select name="interest" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff4d4d] transition-colors text-zinc-500">
+                <option value="" disabled selected>I'm interested in...</option>
+                <option value="marketing">Performance Marketing</option>
+                <option value="web-dev">Web Development</option>
+                <option value="data">Data Analysis</option>
+                <option value="other">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="relative group">
+            <textarea name="message" rows="4" required placeholder="Your Message" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff4d4d] transition-colors placeholder:text-zinc-700 resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="group/btn self-start flex items-center gap-6 text-sm uppercase tracking-[0.4em] font-bold mt-4">
+            Send Inquiry
+            <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover/btn:border-[#ff4d4d] group-hover/btn:bg-[#ff4d4d] transition-all duration-500">
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover/btn:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </button>
+        </form>
 
       </div>
     </section>

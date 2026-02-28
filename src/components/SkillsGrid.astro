@@ -59,7 +59,6 @@ const skills = [
   }
 ];
 
-// Split the array into 4 chunks for the 4 rows
 const chunkSize = Math.ceil(skills.length / 4);
 const row1 = skills.slice(0, chunkSize);
 const row2 = skills.slice(chunkSize, chunkSize * 2);
@@ -68,26 +67,23 @@ const row4 = skills.slice(chunkSize * 3);
 ---
 
 <div class="w-full">
-  
-  {/* ==============================================================
-      DESKTOP VIEW: Interactive "Apple Watch" Grid
-      ============================================================== */}
+  {/* DESKTOP VIEW */}
   <div id="desktop-skills-container" class="hidden md:flex relative w-full max-w-4xl mx-auto py-20 overflow-visible user-select-none flex-wrap justify-center gap-6 lg:gap-8 perspective-1000">
     {skills.map((skill) => (
       <div
-        class="skill-item relative flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full transition-all duration-200 ease-out will-change-transform group"
+        class="skill-item relative flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full will-change-transform group"
         data-color={`#${skill.color}`}
+        style="filter: grayscale(100%) opacity(0.4);"
       >
         {skill.customSvg ? (
-           <div class="w-10 h-10 lg:w-12 lg:h-12" set:html={skill.customSvg} />
+           <div class="w-10 h-10 lg:w-12 lg:h-12 pointer-events-none" set:html={skill.customSvg} />
         ) : (
            <img 
              src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} 
              alt={skill.name} 
-             class="w-10 h-10 lg:w-12 lg:h-12 object-contain"
+             class="w-10 h-10 lg:w-12 lg:h-12 object-contain pointer-events-none"
            />
         )}
-        
         <span class="absolute -top-12 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-zinc-900 border border-white/20 rounded-md opacity-0 transition-opacity duration-200 pointer-events-none whitespace-nowrap group-hover:opacity-100 z-[9999] shadow-2xl">
           {skill.name}
         </span>
@@ -95,154 +91,49 @@ const row4 = skills.slice(chunkSize * 3);
     ))}
   </div>
 
-
-  {/* ==============================================================
-      MOBILE VIEW: Infinite Scrolling Marquee (4 Rows)
-      ============================================================== */}
+  {/* MOBILE VIEW */}
   <div class="flex md:hidden w-full py-10 overflow-hidden flex-col gap-8 relative">
-    
     <div class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none"></div>
     <div class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none"></div>
 
-    <div class="flex w-max animate-marquee-left">
-      <div class="flex gap-8 pr-8 items-center">
-        {row1.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
+    {[row1, row2, row3, row4].map((row, i) => (
+      <div class={`flex w-max ${i % 2 === 0 ? 'animate-marquee-left' : 'animate-marquee-right'}`}>
+        <div class="flex gap-8 pr-8 items-center">
+          {row.map((skill) => (
+            <div class="flex flex-col items-center gap-2 w-16">
+              <div class="w-8 h-8 flex items-center justify-center opacity-80">
+                {skill.customSvg ? <div class="w-full h-full" set:html={skill.customSvg} /> : <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />}
+              </div>
+              <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
             </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-      <div class="flex gap-8 pr-8 items-center">
-        {row1.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
+          ))}
+        </div>
+        <div class="flex gap-8 pr-8 items-center">
+          {row.map((skill) => (
+            <div class="flex flex-col items-center gap-2 w-16">
+              <div class="w-8 h-8 flex items-center justify-center opacity-80">
+                {skill.customSvg ? <div class="w-full h-full" set:html={skill.customSvg} /> : <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />}
+              </div>
+              <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
             </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-
-    <div class="flex w-max animate-marquee-right">
-      <div class="flex gap-8 pr-8 items-center">
-        {row2.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
-            </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-      <div class="flex gap-8 pr-8 items-center">
-        {row2.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
-            </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div class="flex w-max animate-marquee-left">
-      <div class="flex gap-8 pr-8 items-center">
-        {row3.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
-            </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-      <div class="flex gap-8 pr-8 items-center">
-        {row3.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
-            </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div class="flex w-max animate-marquee-right">
-      <div class="flex gap-8 pr-8 items-center">
-        {row4.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
-            </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-      <div class="flex gap-8 pr-8 items-center">
-        {row4.map((skill) => (
-          <div class="flex flex-col items-center gap-2 w-16">
-            <div class="w-8 h-8 flex items-center justify-center opacity-80">
-              {skill.customSvg ? (
-                <div class="w-full h-full" set:html={skill.customSvg} />
-              ) : (
-                <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} alt={skill.name} class="w-full h-full object-contain" />
-              )}
-            </div>
-            <span class="text-[8px] uppercase tracking-widest text-gray-500 whitespace-nowrap text-center">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
+    ))}
   </div>
 </div>
 
 <script>
-  // Only target the desktop container so JS doesn't run unnecessarily on mobile
   const container = document.getElementById('desktop-skills-container');
-  
   if (container) {
     const items = container.querySelectorAll('.skill-item');
-
-    const config = {
-      maxScale: 1.8,        
-      baseScale: 1.0,       
-      influenceRadius: 150, 
-      damping: 0.15         
+    
+    // CONFIGURATION
+    const config = { 
+      maxScale: 1.8, 
+      baseScale: 1.0, 
+      influenceRadius: 100, // Reduced radius for "tighter" color focus
+      damping: 0.2          // Faster damping for snappier reset
     };
 
     let targetScales = new Array(items.length).fill(config.baseScale);
@@ -251,25 +142,34 @@ const row4 = skills.slice(chunkSize * 3);
 
     function animate() {
       let needsUpdate = false;
-      
+
       items.forEach((item, index) => {
         const diff = targetScales[index] - currentScales[index];
         
-        if (Math.abs(diff) > 0.005) {
+        if (Math.abs(diff) > 0.001) {
           currentScales[index] += diff * config.damping;
           needsUpdate = true;
         } else {
           currentScales[index] = targetScales[index]; 
         }
-        
-        item.style.transform = `scale(${currentScales[index]})`;
-        item.style.zIndex = Math.round(currentScales[index] * 100);
 
-        if (currentScales[index] > config.baseScale + 0.05) {
+        // Apply Transform
+        item.style.transform = `scale(${currentScales[index]})`;
+        item.style.zIndex = Math.round(currentScales[index] * 100).toString();
+
+        // LOGIC: COLOR TRANSITION (JS ONLY)
+        // Only trigger color if the icon is significantly magnified
+        if (currentScales[index] > config.baseScale + 0.15) {
           const color = item.getAttribute('data-color');
-          item.style.filter = `drop-shadow(0 0 12px ${color}80)`; 
+          // Smoothly fade from grayscale to color based on magnification scale
+          const progress = (currentScales[index] - (config.baseScale + 0.15)) / (config.maxScale - (config.baseScale + 0.15));
+          const grayValue = 100 - (progress * 100);
+          const opacityValue = 0.4 + (progress * 0.6);
+          
+          item.style.filter = `grayscale(${grayValue}%) opacity(${opacityValue}) drop-shadow(0 0 10px ${color}60)`;
         } else {
-          item.style.filter = 'none';
+          // Absolute reset
+          item.style.filter = "grayscale(100%) opacity(0.4)";
         }
       });
 
@@ -289,20 +189,16 @@ const row4 = skills.slice(chunkSize * 3);
         const itemRect = item.getBoundingClientRect();
         const itemCenterX = itemRect.left + itemRect.width / 2 - rect.left;
         const itemCenterY = itemRect.top + itemRect.height / 2 - rect.top;
-
-        const distance = Math.sqrt(
-          Math.pow(mouseX - itemCenterX, 2) + Math.pow(mouseY - itemCenterY, 2)
-        );
+        const distance = Math.sqrt(Math.pow(mouseX - itemCenterX, 2) + Math.pow(mouseY - itemCenterY, 2));
 
         if (distance < config.influenceRadius) {
-          const ratio = 1 - distance / config.influenceRadius;
+          const ratio = 1 - (distance / config.influenceRadius);
           const scaleBoost = Math.sin(ratio * Math.PI / 2) * (config.maxScale - config.baseScale);
           targetScales[index] = config.baseScale + scaleBoost;
         } else {
           targetScales[index] = config.baseScale;
         }
       });
-
       if (!animationFrameId) animate();
     });
 
@@ -316,23 +212,13 @@ const row4 = skills.slice(chunkSize * 3);
 <style>
   .perspective-1000 { perspective: 1000px; }
   .user-select-none { user-select: none; }
-
-  /* Infinite Marquee Animations */
-  @keyframes marqueeLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+  @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+  .animate-marquee-left { animation: marqueeLeft 30s linear infinite; }
+  .animate-marquee-right { animation: marqueeRight 30s linear infinite; }
   
-  @keyframes marqueeRight {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
-  }
-
-  .animate-marquee-left {
-    animation: marqueeLeft 30s linear infinite;
-  }
-  
-  .animate-marquee-right {
-    animation: marqueeRight 30s linear infinite;
+  /* Remove Tailwind hover transitions to prevent flickering */
+  .skill-item {
+     transition: none; 
   }
 </style>
